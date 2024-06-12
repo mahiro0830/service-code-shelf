@@ -1,3 +1,471 @@
+/* =====================================================
+  Reset
+===================================================== */
+html {
+  font-size: 62.5%;
+}
+
 body {
-  color: tomato;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+input,
+textarea,
+button,
+img {
+  box-sizing: border-box;
+}
+
+/* =====================================================
+  Variables
+===================================================== */
+$color_accent: rgb(225, 78, 52);
+
+/* =====================================================
+  Layout
+===================================================== */
+/* -----------------------------------
+.l-header
+----------------------------------- */
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  height: 62px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.l-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.l-header__logo {
+  width: 180px;
+}
+
+/* -----------------------------------
+.l-footer
+----------------------------------- */
+.l-footer {
+  background-color: #f5f5f5;
+}
+
+.l-footer__main {
+  padding: 45px 0;
+}
+
+.l-footer__row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.l-footer__head {
+  width: 340px;
+}
+
+.l-footer__nav {
+  width: calc(100% - 340px);
+}
+
+.l-footer__nav-list {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.l-footer__nav-item a {
+  font-size: 1.4rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.l-footer__logo {
+  width: 230px;
+}
+
+.l-footer__catch {
+  margin-top: 20px;
+
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+.l-footer__copy {
+  font-size: 1.2rem;
+  color: #FFF;
+  text-align: center;
+  background-color: #333;
+  padding: 10px 0;
+}
+
+/* -----------------------------------
+.l-container
+----------------------------------- */
+.l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* -----------------------------------
+.l-body
+----------------------------------- */
+.l-body {
+  padding-top: 62px;
+}
+
+.l-body__inner {
+  padding: 20px;
+}
+
+/* =====================================================
+  Project
+===================================================== */
+/* -----------------------------------
+.p-code-register
+----------------------------------- */
+.p-code-register {
+}
+
+.p-code-register__header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 52px;
+}
+
+.p-code-register__category {
+  width: 320px;
+}
+
+.p-code-register__tags {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.p-code-register__tag {
+  background-color: $color_accent;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  padding-right: 22px;
+  position: relative;
+
+  &::after {
+    content: '×';
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+  }
+}
+
+.p-code-register__main {
+  display: flex;
+  height: 500px;
+}
+
+.p-code-register__editor {
+  width: 37%;
+
+  .w-tc-editor {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.p-code-register__view {
+  width: 63%;
+  padding-left: 20px;
+}
+
+/* -----------------------------------
+.p-selectbox
+----------------------------------- */
+.p-selectbox {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  border: 2px solid $color_accent;
+  border-radius: 999px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  &:hover {
+    .p-selectbox__list {
+      display: flex;
+    }
+  }
+}
+
+.p-selectbox__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  padding-right: 50px;
+  opacity: 0.3;
+  // display: none;
+
+  // 下矢印
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-color: $color_accent transparent transparent;
+    margin-left: 10px;
+  }
+}
+
+.p-selectbox__input {
+  border-radius: 999px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  display: none;
+
+  .head {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .tail {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  input {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 51.5px;
+    right: 50px;
+    bottom: 0;
+    width: calc(100% - 90px);
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.p-selectbox__list {
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  padding-top: 40px;
+  border: 2px solid $color_accent;
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+.p-selectbox__item {
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background-color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+/* -----------------------------------
+.p-input-tag
+----------------------------------- */
+.p-input-tag {
+  position: relative;
+  border: 2px solid $color_accent;
+  border-radius: 999px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  height: 50px;
+
+  .head {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .tail {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  input {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 32.5px;
+    right: 50px;
+    bottom: 0;
+    width: calc(100% - 76px);
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    &::placeholder {
+      color: #B2B2B2;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+/* =====================================================
+  Components
+===================================================== */
+/* -----------------------------------
+.c-button
+----------------------------------- */
+.c-button {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  background-color: $color_accent;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(225, 78, 52, 0.8);
+  }
 }

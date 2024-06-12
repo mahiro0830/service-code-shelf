@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>環境構築</title>
+    <title>CodeShelf | プログラミング学習を支援するためのサービス「CodeShelf」</title>
     @viteReactRefresh
     @vite([
         'resources/scss/app.scss',
@@ -13,7 +13,6 @@
     ])
 </head>
 <body>
-    <div id="app">
-    </div>
+    <div id="app"></div>
 </body>
 </html>
