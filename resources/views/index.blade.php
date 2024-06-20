@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <title>CodeShelf | プログラミング学習を支援するためのサービス「CodeShelf」</title>
     @viteReactRefresh
     @vite([
