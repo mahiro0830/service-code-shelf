@@ -6,7 +6,13 @@ export default {
     "./resources/**/*.tsx",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        accent: {
+          DEFAULT: 'rgb(225, 78, 52)',
+        },
+      },
+    },
   },
   plugins: [],
 }

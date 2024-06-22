@@ -8,8 +8,8 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
-      <main className="l-body">
-        <div className='l-body__inner'>
+      <main className="min-h-[80vh]">
+        <div className="pt-8 px-12 pb-[12rem]">
           <CodeRegister />
         </div>
       </main>
