@@ -12,6 +12,6 @@
     ])
 </head>
 <body class="min-w-[1340px] pt-[6.2rem]">
-    <div id="home"></div>
+    <div id="login"></div>
 </body>
 </html>
