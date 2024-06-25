@@ -24,6 +24,7 @@
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
         "@uiw/react-textarea-code-editor": "^3.0.2",
-        "dompurify": "^3.1.5"
+        "dompurify": "^3.1.5",
+        "react-router-dom": "^6.24.0"
     }
 }
