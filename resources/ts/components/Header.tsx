@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
         <h1 className="w-[18rem]">
           <img src="/images/logo.svg" alt="CodeShelf" />
         </h1>
-        <Button href='/login' text="ログイン" />
+        <Link to="/login">ログイン</Link>
       </div>
     </header>
   );
