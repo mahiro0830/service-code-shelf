@@ -8,25 +8,23 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Items from './pages/Items';
-import { AuthProvider } from './context/AuthContext';
+import AuthProviderWithRouter from './context/AuthProviderWithRouter';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Header />
-        <main className="min-h-[80vh]">
-          <Routes>
-            <Route index path="/" element={ <Home /> } />
-            <Route path="/login" element={ <Login /> } />
-            <Route path="/register" element={ <Register /> } />
-            <Route path="/dashboard" element={ <Dashboard /> } />
-            <Route path="/items" element={ <Items /> } />
-          </Routes>
-        </main>
-        <Footer />
-      </Router>
-    </AuthProvider>
+    <AuthProviderWithRouter>
+      <Header />
+      <main className="min-h-[80vh]">
+        <Routes>
+          <Route index path="/" element={ <Home /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/register" element={ <Register /> } />
+          <Route path="/dashboard" element={ <Dashboard /> } />
+          <Route path="/items" element={ <Items /> } />
+        </Routes>
+      </main>
+      <Footer />
+    </AuthProviderWithRouter>
   );
 }
 
