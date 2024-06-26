@@ -1,6 +1,7 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 // ベースURLの設定
 axios.defaults.baseURL = '/api';
@@ -11,14 +12,14 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     try {
       const response = await axios.post('/login', { email, password });
-      localStorage.setItem('token', response.data.token);
-      // 認証成功後に /dashboard に遷移
+      login(response.data.token);
       navigate('/dashboard');
     } catch (error) {
       setError('メールアドレスまたはパスワードが間違っています');
