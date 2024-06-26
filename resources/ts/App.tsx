@@ -11,9 +11,13 @@ import Items from './pages/Items';
 import AuthProviderWithRouter from './context/AuthProviderWithRouter';
 import { ReactNode } from 'react';
 
+interface RequireAuthProps {
+  component: ReactNode;
+};
+
 const App = () => {
   // 認証確認メソッド
-  const RequireAuth = ( props: { component: ReactNode; } ) => {
+  const RequireAuth: React.FC<RequireAuthProps> = ( props ) => {
     // ログインシている場合は、渡されたコンポーネントを表示
     if (localStorage.getItem('AUTHORITY') === 'GENERAL') {
       return props.component;
@@ -23,7 +27,7 @@ const App = () => {
   };
 
   // 非認証メソッド
-  const RequireNoAuth = ( props: { component: ReactNode; } ) => {
+  const RequireNoAuth: React.FC<RequireAuthProps> = ( props ) => {
     // ログインしていない場合は、渡されたコンポーネントを表示
     if (localStorage.getItem('AUTHORITY') === null) {
       return props.component;
