@@ -1,8 +1,18 @@
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
-export const AuthContext = createContext();
+interface AuthContextProps {
+  isAuthenticated: boolean;
+  login: (token: string) => void;
+  logout: () => void;
+};
 
-export const AuthProvider = ({ children }) => {
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthContext = createContext<AuthContextProps | undefined>(undefined);
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -12,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     }
   });
 
-  const login = (token) => {
+  const login = (token: string) => {
     localStorage.setItem('token', token);
   };
 
