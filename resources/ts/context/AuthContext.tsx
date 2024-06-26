@@ -29,6 +29,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = (token: string) => {
     setIsAuthenticated(true);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    localStorage.setItem('AUTHORITY', 'GENERAL');
+    localStorage.setItem('token', token);
   };
 
   const logout = async () => {
@@ -37,9 +39,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     } catch (error) {
       console.error('Failed to logout:', error);
     } finally {
-      localStorage.removeItem('token');
       setIsAuthenticated(false);
       delete axios.defaults.headers.common['Authorization'];
+      localStorage.removeItem('token');
+      localStorage.removeItem('AUTHORITY');
       navigate('/login');
     }
   };
